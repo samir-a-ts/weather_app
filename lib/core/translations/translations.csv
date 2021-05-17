@@ -1,0 +1,28 @@
+keys;ru;en
+savedForecastFailure;Не удалось загрузить данные прогноза погоды с вашего устройства!;Cannot load locally saved forecast!
+saveForecastFailure;Не удалось сохранить данные прогноза погоды на ваше устройство!;Cannot save forecast!
+noInternetConnection;Нету подключения к интернету!;You have not connection to internet!
+notInTheCity;Вы не находитесь в каком либо городе или посёлке!;You are not located in some city or country!
+cannotLoadCityForecast;Не удалось загрузить прогноз погоды города!;Failed to load forecast of the city!
+locationServiceNotAvaliable;Получение геолокации недоступно на вашем телефоне;Location service is not avaliable on your phone!
+locationPermissionDeniedForever;Запрос на доступ к геолокации отменен навсегда!;Location permission denied forever!
+locationPermissionDenied;Запрос на доступ к геолокации отклонен!;Location permission denied!
+cityDoesNotExists;Такого города не существует!;This city doesnt exists!
+signIn;Регистрация;Sign in
+logIn;Вход;Log in
+account;Аккаунт;Account
+addCity;Добавить город;Add city
+humidity;Влажность;Humidity
+metrePerSecond;м/с;m/s
+windSpeed;Скорость ветра;Wind speed
+pressure;Давление;Pressure
+feelsLike;По ощущениям;Feels like
+ok;OK;OK
+delete;Удалить;Delete
+refresh;Перезагрузить;Refresh
+loadFromLocation;Загрузить погоду из локации?;Load weather from location?
+no;Нет;No
+chooseAppColor;Выберите цвет приложения;Choose app color
+language;Язык;Language
+tempType;Тип температуры;Temperature type
+appDescription; D&L Weather - это первое приложение, созданное нашими участниками стартапа D&L Development. Оно будет развиваться в дальнейшем будущем, вместе с тем будут увеличиваться наши знания и опыт. Спасибо, что выбрали нас! Эта поддержка очень важна нам.; D&L Weather - first app, that has been created by D&L Development team. It would develop in near future. Thanks for choosing us! We need this support very much.

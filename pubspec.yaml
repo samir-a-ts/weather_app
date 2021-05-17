@@ -1,0 +1,82 @@
+name: weather_app
+description: Weather app for weather viewing
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_localizations:
+    sdk: flutter
+  # UI
+  bloc:
+  flutter_bloc:
+  sliding_up_panel:
+  flutter_slidable:
+
+  # Data requesting
+  dio:
+
+  # Device permission
+  geolocator:
+  connectivity:
+
+  # Data saving
+  shared_preferences:
+
+  # Dart support
+  equatable:
+  dartz:
+  get_it:
+
+  # App logger
+  logger:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  lint:
+
+  flutter_launcher_icons:
+
+  # Translations
+  flappy_translator:
+
+
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/icon.png"
+
+flappy_translator:
+  input_file_path: "lib/core/translations/translations.csv"
+  output_dir: "lib/core/translations"
+  file_name: "i18n"
+  class_name: "I18n"
+  delimiter: ";"
+  start_index: 1
+  depend_on_context: false
+  use_single_quotes: true
+  replace_no_break_spaces: false
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/fonts/
+    # Backgrounds are made by
+    # other pretty woman. :)
+    # https://vk.com/doom_ed_doomed
+    - assets/images/
+
+  fonts:
+    - family: Hairline
+      fonts:
+        - asset: assets/fonts/Hairline.ttf
