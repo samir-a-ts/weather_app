@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 /// Colors that avaliable in
 /// settings.
@@ -16,12 +17,5 @@ const color = [
 /// App theme.
 
 final kTheme = ThemeData(
-  textTheme: const TextTheme(
-    headline2: TextStyle(fontFamily: 'Hairline'),
-    headline3: TextStyle(fontFamily: 'Hairline'),
-    headline4: TextStyle(fontFamily: 'Hairline'),
-    headline5: TextStyle(fontFamily: 'Hairline'),
-    headline6: TextStyle(fontFamily: 'Hairline'),
-    bodyText2: TextStyle(fontFamily: 'Hairline'),
-  ),
+  textTheme: GoogleFonts.bungeeHairlineTextTheme(),
 );

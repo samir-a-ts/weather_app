@@ -12,11 +12,15 @@ dependencies:
 
   flutter_localizations:
     sdk: flutter
-  # UI
+  # State management
   bloc:
   flutter_bloc:
+
+  # UI
   sliding_up_panel:
   flutter_slidable:
+  google_fonts:
+
 
   # Data requesting
   dio:
