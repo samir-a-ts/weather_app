@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
-import 'package:weather_app/core/constans/constants.dart';
+import 'package:weather_app/core/constants/constants.dart';
 import 'package:weather_app/core/presentation/widgets/gap.dart';
 import 'package:weather_app/core/presentation/widgets/snack_bar.dart';
 import 'package:weather_app/core/presentation/widgets/app_drawer.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/core/constans/constants.dart';
+import 'package:weather_app/core/constants/constants.dart';
 import 'package:weather_app/core/translations/i18n.dart';
 import 'package:weather_app/features/app/presentation/widgets/color_circle.dart';
 

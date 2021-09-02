@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:weather_app/core/constans/constants.dart';
+import 'package:weather_app/core/constants/constants.dart';
 import '../../domain/entities/settings.dart';
 
 abstract class InitDataSource {

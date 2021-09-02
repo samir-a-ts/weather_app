@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/core/constans/constants.dart';
+import 'package:weather_app/core/constants/constants.dart';
 import 'package:weather_app/core/presentation/widgets/gap.dart';
 import 'package:weather_app/core/translations/i18n.dart';
 import 'package:weather_app/features/app/domain/entities/settings.dart';

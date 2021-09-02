@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:weather_app/core/constans/constants.dart';
+import 'package:weather_app/core/constants/constants.dart';
 
 /// BLoC and Cubit observer.
 /// Helps us to track all blocs

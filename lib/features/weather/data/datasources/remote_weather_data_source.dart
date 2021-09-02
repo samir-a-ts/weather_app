@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:weather_app/core/constans/constants.dart';
+import 'package:weather_app/core/constants/constants.dart';
 import 'package:weather_app/core/errors/errors.dart';
 import 'package:weather_app/core/translations/i18n.dart';
 import 'package:weather_app/features/weather/domain/entities/forecast.dart';

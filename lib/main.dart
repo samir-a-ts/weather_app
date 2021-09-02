@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:weather_app/core/constans/constants.dart';
+import 'package:weather_app/core/constants/constants.dart';
 import 'package:weather_app/features/app/presentation/cubtis/init_cubit.dart';
 import 'package:weather_app/features/weather/presentation/cubit/weather_cubit.dart';
 import 'package:weather_app/injection_container.dart';
 
 import './injection_container.dart' as di;
+import 'core/constants/theme.dart';
 import 'core/state_observer.dart';
 import 'core/translations/i18n.dart';
 
