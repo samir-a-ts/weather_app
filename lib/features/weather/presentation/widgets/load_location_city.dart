@@ -17,7 +17,7 @@ class _LoadLocationCityDialogState extends State<LoadLocationCityDialog> {
       backgroundColor: Colors.transparent,
       insetPadding: const EdgeInsets.all(10),
       child: Stack(
-        overflow: Overflow.visible,
+        clipBehavior: Clip.none,
         alignment: Alignment.center,
         children: <Widget>[
           Container(
@@ -46,7 +46,7 @@ class _LoadLocationCityDialogState extends State<LoadLocationCityDialog> {
             bottom: 0,
             child: Row(
               children: [
-                RaisedButton(
+                ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).pop();
 
@@ -56,7 +56,7 @@ class _LoadLocationCityDialogState extends State<LoadLocationCityDialog> {
                   child: Text(I18n.ok),
                 ),
                 const Gap(10),
-                RaisedButton(
+                ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },

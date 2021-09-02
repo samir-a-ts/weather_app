@@ -21,7 +21,7 @@ class _AppDrawerState extends State<AppDrawer> {
     final padding = MediaQuery.of(context).padding.top;
 
     return Stack(
-      overflow: Overflow.visible,
+      clipBehavior: Clip.none,
       children: [
         SizedBox(
           width: size.width * .6,

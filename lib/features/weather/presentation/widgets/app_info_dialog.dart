@@ -15,7 +15,7 @@ class _AppInfoDialogState extends State<AppInfoDialog> {
       backgroundColor: Colors.transparent,
       insetPadding: const EdgeInsets.all(10),
       child: Stack(
-        overflow: Overflow.visible,
+        clipBehavior: Clip.none,
         alignment: Alignment.center,
         children: <Widget>[
           Container(
@@ -44,7 +44,7 @@ class _AppInfoDialogState extends State<AppInfoDialog> {
           ),
           Positioned(
             bottom: 0,
-            child: RaisedButton(
+            child: ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pop();
 

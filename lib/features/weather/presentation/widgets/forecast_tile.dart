@@ -68,7 +68,7 @@ class _ForecastTileState extends State<ForecastTile> {
                 child: Container(
                   width: size.width,
                   padding: const EdgeInsets.all(12),
-                  height: 80,
+                  height: 85,
                   decoration: const BoxDecoration(
                     color: Colors.grey,
                   ),

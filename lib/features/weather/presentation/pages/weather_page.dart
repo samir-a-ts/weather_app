@@ -22,7 +22,8 @@ class WeatherPage extends StatefulWidget {
 }
 
 class _WeatherPageState extends State<WeatherPage> {
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
+  final _scaffoldKey = GlobalKey<ScaffoldMessengerState>();
+  final _messangerState = GlobalKey<ScaffoldState>();
 
   final PanelController _panelController = PanelController();
 
@@ -44,131 +45,134 @@ class _WeatherPageState extends State<WeatherPage> {
             final forecast = state.forecasts[widget.index];
 
             return Scaffold(
-              key: _scaffoldKey,
+              key: _messangerState,
               drawer: const AppDrawer(),
-              body: SafeArea(
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(
-                        getImageFromWeatherCondition(forecast.current),
+              body: ScaffoldMessenger(
+                key: _scaffoldKey,
+                child: SafeArea(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          getImageFromWeatherCondition(forecast.current),
+                        ),
+                        fit: BoxFit.cover,
                       ),
-                      fit: BoxFit.cover,
                     ),
-                  ),
-                  child: SlidingUpPanel(
-                    controller: _panelController,
-                    minHeight: 0,
-                    maxHeight: 320,
-                    body: SizedBox(
-                      width: query.size.width,
-                      height: query.size.height - query.padding.top,
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Positioned(
-                            left: 0,
-                            top: 20,
-                            child: DrawerButton(
-                              scaffoldKey: _scaffoldKey,
+                    child: SlidingUpPanel(
+                      controller: _panelController,
+                      minHeight: 0,
+                      maxHeight: 320,
+                      body: SizedBox(
+                        width: query.size.width,
+                        height: query.size.height - query.padding.top,
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Positioned(
+                              left: 0,
+                              top: 20,
+                              child: DrawerButton(
+                                scaffoldKey: _messangerState,
+                              ),
                             ),
-                          ),
-                          Align(
-                            alignment: const Alignment(-1, 0),
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 90.0),
-                              child: Column(
-                                children: [
-                                  IconButton(
-                                    icon: Icon(
-                                      Icons.phone_android,
-                                      color: snapshot is InitLoaded
-                                          ? snapshot.settings.color
-                                          : Colors.black,
-                                    ),
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                  ),
-                                  const Gap(10),
-                                  if (BlocProvider.of<WeatherCubit>(context)
-                                      .state is LoadingWeatherState)
-                                    const CircularProgressIndicator()
-                                  else
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 90.0),
+                                child: Column(
+                                  children: [
                                     IconButton(
                                       icon: Icon(
-                                        Icons.refresh,
+                                        Icons.phone_android,
                                         color: snapshot is InitLoaded
                                             ? snapshot.settings.color
                                             : Colors.black,
                                       ),
-                                      onPressed: () async {
-                                        BlocProvider.of<WeatherCubit>(context)
-                                            .refreshCity(forecast.cityName);
+                                      onPressed: () {
+                                        Navigator.pop(context);
                                       },
                                     ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            top: 25,
-                            right: 25,
-                            child: SizedBox(
-                              width: query.size.width * .7,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    forecast.cityName,
-                                    style:
-                                        Theme.of(context).textTheme.headline4,
-                                    textAlign: TextAlign.end,
-                                  ),
-                                  const Gap(7),
-                                  Text(
-                                    getTempFromType(
-                                      snapshot is InitLoaded
-                                          ? snapshot.settings.type
-                                          : TempType.celsium,
-                                      forecast.current.temp,
-                                    ),
-                                    textAlign: TextAlign.end,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline2
-                                        .copyWith(
-                                          fontSize: 65,
+                                    const Gap(10),
+                                    if (BlocProvider.of<WeatherCubit>(context)
+                                        .state is LoadingWeatherState)
+                                      const CircularProgressIndicator()
+                                    else
+                                      IconButton(
+                                        icon: Icon(
+                                          Icons.refresh,
+                                          color: snapshot is InitLoaded
+                                              ? snapshot.settings.color
+                                              : Colors.black,
                                         ),
-                                  ),
-                                  const Gap(7),
-                                  Text(
-                                    forecast.current.conditionDetails,
-                                    textAlign: TextAlign.end,
-                                    style:
-                                        Theme.of(context).textTheme.headline5,
-                                  ),
-                                ],
+                                        onPressed: () async {
+                                          BlocProvider.of<WeatherCubit>(context)
+                                              .refreshCity(forecast.cityName);
+                                        },
+                                      ),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                          Positioned(
-                            bottom: 50,
-                            child: IconButton(
-                              icon: const Icon(
-                                Icons.arrow_upward,
-                                color: Colors.black,
+                            Positioned(
+                              top: 25,
+                              right: 25,
+                              child: SizedBox(
+                                width: query.size.width * .7,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      forecast.cityName,
+                                      style:
+                                          Theme.of(context).textTheme.headline4,
+                                      textAlign: TextAlign.end,
+                                    ),
+                                    const Gap(7),
+                                    Text(
+                                      getTempFromType(
+                                        snapshot is InitLoaded
+                                            ? snapshot.settings.type
+                                            : TempType.celsium,
+                                        forecast.current.temp,
+                                      ),
+                                      textAlign: TextAlign.end,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headline2
+                                          .copyWith(
+                                            fontSize: 65,
+                                          ),
+                                    ),
+                                    const Gap(7),
+                                    Text(
+                                      forecast.current.conditionDetails,
+                                      textAlign: TextAlign.end,
+                                      style:
+                                          Theme.of(context).textTheme.headline5,
+                                    ),
+                                  ],
+                                ),
                               ),
-                              onPressed: () {
-                                _panelController.open();
-                              },
                             ),
-                          ),
-                        ],
+                            Positioned(
+                              bottom: 50,
+                              child: IconButton(
+                                icon: const Icon(
+                                  Icons.arrow_upward,
+                                  color: Colors.black,
+                                ),
+                                onPressed: () {
+                                  _panelController.open();
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    panel: WeatherPanel(
-                      forecast: forecast,
+                      panel: WeatherPanel(
+                        forecast: forecast,
+                      ),
                     ),
                   ),
                 ),
