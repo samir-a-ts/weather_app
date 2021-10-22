@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/core/presentation/widgets/gap.dart';
 import 'package:weather_app/core/presentation/widgets/app_drawer.dart';
 import 'package:weather_app/core/presentation/widgets/drawer_button.dart';
+import 'package:weather_app/core/presentation/widgets/gap.dart';
+import 'package:weather_app/core/presentation/widgets/snack_bar.dart';
 import 'package:weather_app/core/translations/i18n.dart';
 import 'package:weather_app/features/app/presentation/cubtis/init_cubit.dart';
 import 'package:weather_app/features/weather/presentation/cubit/weather_cubit.dart';
 import 'package:weather_app/features/weather/presentation/widgets/app_info_dialog.dart';
-import 'package:weather_app/core/presentation/widgets/snack_bar.dart';
+
 import '../widgets/forecast_tile.dart';
 
 class WeatherListPage extends StatefulWidget {
@@ -43,6 +44,8 @@ class _WeatherListPageState extends State<WeatherListPage> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return BlocConsumer<WeatherCubit, WeatherState>(
       listener: (context, state) {
         if (state is FailureWeatherState) {
@@ -58,56 +61,73 @@ class _WeatherListPageState extends State<WeatherListPage> {
           key: _scaffoldKey,
           drawerEnableOpenDragGesture: false,
           drawer: const AppDrawer(),
-          body: ScaffoldMessenger(
-            key: _messangerKey,
-            child: SafeArea(
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20.0),
-                      child: DrawerButton(
-                        scaffoldKey: _scaffoldKey,
-                      ),
+          body: Stack(
+            children: [
+              Container(
+                width: size.width,
+                height: size.height,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                      './assets/images/background.png',
                     ),
-                    const Gap(25),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextFormField(
-                        controller: _cityController,
-                      ),
-                    ),
-                    const Gap(10),
-                    if (state is LoadingWeatherState)
-                      const Align(
-                        child: CircularProgressIndicator(),
-                      )
-                    else
-                      Align(
-                        child: TextButton(
-                          onPressed: () {
-                            if (_cityController.text.isNotEmpty) {
-                              BlocProvider.of<WeatherCubit>(context)
-                                  .loadCity(_cityController.text);
-
-                              _cityController.value = TextEditingValue.empty;
-                            }
-                          },
-                          child: Text(I18n.addCity),
-                        ),
-                      ),
-                    const Gap(10),
-                    Column(
-                      children: List.generate(
-                        state.forecasts.length,
-                        (index) => ForecastTile(index: index),
-                      ),
-                    ),
-                  ],
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-            ),
+              ScaffoldMessenger(
+                key: _messangerKey,
+                child: SafeArea(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child: DrawerButton(
+                            scaffoldKey: _scaffoldKey,
+                          ),
+                        ),
+                        const Gap(25),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextFormField(
+                            controller: _cityController,
+                          ),
+                        ),
+                        const Gap(10),
+                        if (state is LoadingWeatherState)
+                          const Align(
+                            child: CircularProgressIndicator(),
+                          )
+                        else
+                          Align(
+                            child: TextButton(
+                              onPressed: () {
+                                if (_cityController.text.isNotEmpty) {
+                                  BlocProvider.of<WeatherCubit>(context)
+                                      .loadCity(_cityController.text);
+
+                                  _cityController.value =
+                                      TextEditingValue.empty;
+                                }
+                              },
+                              child: Text(I18n.addCity),
+                            ),
+                          ),
+                        const Gap(10),
+                        Column(
+                          children: List.generate(
+                            state.forecasts.length,
+                            (index) => ForecastTile(index: index),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         );
       },

@@ -74,13 +74,7 @@ flutter:
 
   assets:
     - assets/
-    - assets/fonts/
     # Backgrounds are made by
     # other pretty woman. :)
     # https://vk.com/doom_ed_doomed
     - assets/images/
-
-  fonts:
-    - family: Hairline
-      fonts:
-        - asset: assets/fonts/Hairline.ttf

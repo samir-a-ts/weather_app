@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 /// Colors that avaliable in
 /// settings.
@@ -16,6 +15,4 @@ const color = [
 
 /// App theme.
 
-final kTheme = ThemeData(
-  textTheme: GoogleFonts.bungeeHairlineTextTheme(),
-);
+final kTheme = ThemeData();

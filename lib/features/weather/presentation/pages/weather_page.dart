@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:weather_app/core/constants/constants.dart';
-import 'package:weather_app/core/presentation/widgets/gap.dart';
-import 'package:weather_app/core/presentation/widgets/snack_bar.dart';
 import 'package:weather_app/core/presentation/widgets/app_drawer.dart';
 import 'package:weather_app/core/presentation/widgets/drawer_button.dart';
+import 'package:weather_app/core/presentation/widgets/gap.dart';
+import 'package:weather_app/core/presentation/widgets/snack_bar.dart';
 import 'package:weather_app/features/app/domain/entities/settings.dart';
 import 'package:weather_app/features/app/presentation/cubtis/init_cubit.dart';
 import 'package:weather_app/features/weather/domain/entities/weather_helper.dart';
 import 'package:weather_app/features/weather/presentation/cubit/weather_cubit.dart';
+
 import '../widgets/weather_panel.dart';
 
 class WeatherPage extends StatefulWidget {
